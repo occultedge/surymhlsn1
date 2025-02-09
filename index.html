@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Password to Access Page</h2>
+        <input type="password" id="password" placeholder="Enter Password" />
+        <button onclick="checkPassword()">Submit</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const validPasswords = [
+           'ab51ne', 'ac19pe', 'ac46me', 'ai55ne', 'an43me', 'as88re', 'at20me', 'aw83ne', 'ay13ne', 'ay56ne', 'az23ne', 'ba75ne', 'ba54me', 'ba57mi', 'ba94ne', 'be00ne', 'be14ne', 'bo19ne', 'ch30ne', 'choone', 'cl63le', 'do00ne', 'ek60me', 'em00ne', 'et00ne', 'eu64ne', 'fe27ne', 'fo59ne', 'fo64ne', 'fo73ne', 'gr01ne', 'jo58ne', 'ke38ne', 'ki72ne', 'ki05mi', 'ki63me', 'ko47ne', 'ku76me', 'kw03ne', 'le36me', 'li94ne', 'lo94me', 'ma03me', 'ma23pe', 'mb17le', 'mb73ne', 'mc63ne', 'me88me', 'me90ne', 'mo37ne', 'mu01ne', 'na00ne', 'nc54me', 'nd26me', 'ne23ne', 'nf71mi', 'ng01ne', 'ng95me', 'tc84me', 'nk98ne', 'no41ne', 'no50ne', 'ns00ne', 'ns05le', 'ns27pe', 'ny59me', 'nyoone', 'on22mi', 'ov55ne', 'pa03me', 'pr20ne', 'ra93de', 'si88me', 'ng37me', 'so28me', 'so88me', 'ta10ne', 'ta02me', 'ta79ne', 'te14ne', 'te23ne', 'te50ne', 'ti10ne', 'ti93ne', 'to36ne', 'to42ne', 'wa00ne', 'aw59mi', 'yo84ne', 'zo34me', 'mb63sf', 'bi70sf', 'nk22sf', 'ng43sf', 'ng67sf', 'nn58sf', 'ke47sf', 'nj35tf', 'si20oe', 'mb13oe', 'rohit', 'utkarsh', 'anita', 'arunima', 'rohit', 'utkarsh', 'bisheline', 'njousi', 'admin', 's1', 's2', 's3', 's4', 's5', 's6', 's7'
+
+        ];
+
+        function checkPassword() {
+            const passwordInput = document.getElementById("password").value.trim();
+            const message = document.getElementById("message");
+
+            if (validPasswords.includes(passwordInput)) {
+                message.style.color = "green";
+                message.textContent = "Access granted!";
+                // Redirect to the actual content page after a short delay
+                setTimeout(() => {
+                    window.location.href = "main_content.html"; // Ensure this file is in the same directory
+                }, 1000);
+            } else {
+                message.style.color = "red";
+                message.textContent = "Access denied. Incorrect password.";
+            }
+        }
+
+        // Optional: Allow pressing Enter to submit
+        document.getElementById("password").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>
